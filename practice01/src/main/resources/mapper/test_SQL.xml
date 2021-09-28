@@ -1,0 +1,18 @@
+<?xml version="1.0"	encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"	
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test">
+	<select id="boardList" resultType="HashMap">
+		SELECT * FROM sbboardview
+	</select>
+	
+	<insert id="insertDb" parameterType="HashMap">
+		INSERT INTO shop (shop_name, shop_tel, shop_loc, shop_opentime, shop_closetime, shop_wido, shop_kyungdo)
+		VALUES (#{mrhstNm }, #{phoneNumber }, #{rdnmadr } ,#{weekdayOperOpenHhmm }, #{weekdayOperColseHhmm },
+		#{latitude }, #{longitude })
+	</insert>
+	
+	<select id="gList" parameterType="HashMap" resultType="HashMap">
+		SELECT * FROM shop WHERE shop_loc LIKE '%광진구%' 
+	</select>
+</mapper>
